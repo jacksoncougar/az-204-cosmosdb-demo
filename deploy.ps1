@@ -2,7 +2,7 @@
 function Publish-Demo {
   Set-PSDebug -Trace 1
   az group create --name rg-cosmosdb-demo-canada-01 --location canadacentral --tags "course=az-204"
-  az cosmosdb create --name cosmos-cosmosdb-demo-canada-01 --resource-group rg-cosmosdb-demo-canada-01
+  az cosmosdb create --name cosmos-cosmosdb-demo-canada-01 --resource-group rg-cosmosdb-demo-canada-01 --enable-free-tier true
   
   # Get connection string from azure and update the app configuration
   $uriEndpoint = $(az cosmosdb show --name cosmos-cosmosdb-demo-canada-01 --resource-group rg-cosmosdb-demo-canada-01 --query documentEndpoint)
